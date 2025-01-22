@@ -83,7 +83,7 @@ export default function LoginView() {
         <Link
           className='text-center text-white text-lg block'
           to="/auth/register"
-        >¿No tienes cuenta? Crea una aquí</Link>
+        >¿No tienes cuenta? <span className="underline hover:text-blue-500">Crea una aquí</span></Link>
       </nav>
     </>
   )

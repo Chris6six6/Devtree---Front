@@ -21,13 +21,16 @@ export default function ProfileView() {
     const updateProfileMutation = useMutation({
         mutationFn: updateProfile,
         onError: (error) => {
-            toast.error(error.message);
+          toast.error(error.message);
         },
         onSuccess: (data) => {
-            toast.success(data);
-            queryClient.invalidateQueries({queryKey: ['user']})
-        }
-    });
+          toast.success(data);
+          queryClient.invalidateQueries({ queryKey: ['user'] });
+        },
+        onMutate: async () => {
+          queryClient.invalidateQueries({ queryKey: ['user'] });
+        },
+      });
 
     const uploadImageMutation = useMutation({
         mutationFn: uploadImage,
